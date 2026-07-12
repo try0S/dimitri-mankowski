@@ -1,0 +1,222 @@
+:root {
+  --ink: #171717;
+  --muted: #686762;
+  --paper: #e9e1d3;
+  --line: #bbb2a3;
+  --rule: #3f3c36;
+  --max-width: 960px;
+  --side-label: 118px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-underline-offset: .2em; }
+img { display: block; max-width: 100%; }
+p, h1, h2, h3, dl, dd { margin-top: 0; }
+::selection { color: var(--paper); background: var(--ink); }
+
+.skip-link {
+  position: fixed;
+  top: -5rem;
+  left: 1rem;
+  z-index: 20;
+  padding: .7rem 1rem;
+  color: var(--paper);
+  background: var(--ink);
+}
+.skip-link:focus { top: 1rem; }
+
+.page-width { width: min(calc(100% - 3rem), var(--max-width)); margin-inline: auto; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(233, 225, 211, .95);
+  backdrop-filter: blur(12px);
+}
+.header-inner {
+  width: min(calc(100% - 3rem), var(--max-width));
+  min-height: 58px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.site-name { font-size: .9rem; font-weight: 700; text-decoration: none; }
+.site-header nav { display: flex; gap: 1.45rem; }
+.site-header nav a {
+  color: var(--muted);
+  font-size: .78rem;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.site-header nav a:hover { color: var(--ink); }
+.edition-line {
+  width: min(calc(100% - 3rem), var(--max-width));
+  margin-inline: auto;
+  padding-block: .36rem .42rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 3px double var(--rule);
+  color: var(--muted);
+  font: .58rem/1.35 "SFMono-Regular", Consolas, monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.intro {
+  padding-block: clamp(3.5rem, 7vw, 5.25rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: clamp(2.5rem, 7vw, 5rem);
+  align-items: center;
+}
+.intro-copy { padding-top: 0; }
+.role {
+  margin-bottom: 1rem;
+  color: var(--muted);
+  font: 600 .72rem/1.4 "SFMono-Regular", Consolas, monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+h1 {
+  max-width: 720px;
+  margin-bottom: 1.6rem;
+  font-family: inherit;
+  font-size: clamp(2.35rem, 5vw, 3.25rem);
+  font-weight: 650;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+.intro-lede {
+  max-width: 690px;
+  margin-bottom: 1rem;
+  font-size: 1.04rem;
+  line-height: 1.6;
+}
+.intro-text { max-width: 680px; margin-bottom: 1.5rem; color: #383735; }
+.intro-lede a { text-decoration-thickness: 1px; }
+.intro-links { display: flex; flex-wrap: wrap; gap: .65rem 1.5rem; }
+.intro-links a, .pub-links a {
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.profile-card { width: 220px; margin: 0; }
+.profile-card img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  object-position: 50% 30%;
+  filter: grayscale(1) contrast(1.03);
+  background: var(--ink);
+}
+.profile-card figcaption {
+  padding-top: .55rem;
+  color: var(--muted);
+  font: .62rem "SFMono-Regular", Consolas, monospace;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.content-section {
+  padding-block: clamp(3.5rem, 6vw, 5rem);
+  display: grid;
+  grid-template-columns: var(--side-label) minmax(0, 1fr);
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 58px;
+}
+.section-label p {
+  margin: .45rem 0 0;
+  color: var(--muted);
+  font: .68rem "SFMono-Regular", Consolas, monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.section-content h2 {
+  margin-bottom: 1.5rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+}
+#publications { border-top: 3px double var(--rule); }
+.publication {
+  padding-block: 1.6rem;
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.featured-publication { border-top-color: var(--ink); }
+.pub-year { padding-top: .15rem; font: .72rem "SFMono-Regular", Consolas, monospace; }
+.pub-status {
+  margin-bottom: .55rem;
+  color: var(--muted);
+  font: .65rem/1.5 "SFMono-Regular", Consolas, monospace;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.publication h3 {
+  max-width: 760px;
+  margin-bottom: .7rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.2rem, 2vw, 1.48rem);
+  font-weight: 400;
+  line-height: 1.3;
+}
+.authors { margin-bottom: .8rem; font-size: .9rem; }
+.pub-links { display: flex; gap: 1.25rem; }
+.contact-label {
+  margin-bottom: .45rem;
+  color: var(--muted);
+  font: .62rem "SFMono-Regular", Consolas, monospace;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.contact-section { border-bottom: 0; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.contact-grid a { font-size: 1.05rem; }
+.contact-grid p:last-child { margin-bottom: 0; }
+
+.site-footer { color: #bdbab2; background: var(--ink); }
+.footer-inner { min-height: 108px; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+.footer-inner p { margin: 0; font-size: .72rem; }
+
+@media (max-width: 760px) {
+  .page-width, .header-inner { width: min(calc(100% - 2rem), var(--max-width)); }
+  .header-inner { padding-block: .8rem; align-items: flex-start; flex-direction: column; gap: .6rem; }
+  .site-header nav { width: 100%; gap: .85rem 1.2rem; flex-wrap: wrap; }
+  .site-header nav a { font-size: .72rem; }
+  .edition-line { width: min(calc(100% - 2rem), var(--max-width)); font-size: .52rem; }
+  .intro { padding-block: 2.75rem 3.5rem; grid-template-columns: 1fr; gap: 2.25rem; }
+  h1 { font-size: clamp(2.25rem, 10vw, 2.85rem); }
+  .profile-card { width: 190px; }
+  .profile-card img { width: 190px; height: 190px; }
+  .content-section { grid-template-columns: 1fr; }
+  .section-label { margin-bottom: 1rem; }
+  .section-label p { margin-top: 0; }
+  .publication { grid-template-columns: 48px 1fr; gap: .8rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-inner { padding-block: 2rem; align-items: flex-start; flex-direction: column; gap: .5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
